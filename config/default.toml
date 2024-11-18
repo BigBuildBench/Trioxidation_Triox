@@ -1,0 +1,63 @@
+# === DEFAULT CONFIG ===
+# This file includes default values that will be overwritten
+# by the local config (local.toml) or environment variables
+# ONLY EDIT THIS FILE IF YOU WANT TO ADJUST FALLBACK VALUES
+
+[server]
+# Server host name
+host = "127.0.0.1"
+# Socket address to bind
+ip = "[::]"
+# Port that should be listened on
+port = 8080
+# Amount of worker threads
+# If set to zero Triox will use one worker per physical CPU core
+workers = 0
+# Domain at which the server will be available
+domain = "localhost"
+# REQUIRED:
+# provide a random string for the following field
+# secret = ""
+
+# Disable sign_up service to prevent creation of new accounts through the API
+registration = true
+
+# Rate limiter parameters for limiting auth requests (login and signup).
+# If at least one of these two fields is empty the rate limiter remains turned off.
+# Time in milliseconds before one quota is replenished.
+rate_limit_period = 4000
+# Maximum amount of request that are allowed in a short interval.
+rate_limit_burst_size = 2
+
+
+[files]
+# Disable file system modification like uploading or moving files
+read_only = false
+
+
+[database]
+# Database type (currently only MySQL is available)
+db = "mysql"
+# Username of the database user
+user = "triox"
+# Password of the database user
+password = "triox"
+# Database address
+host = "localhost"
+# Username of the database user
+port = "3306"
+# Name of the database
+name = "triox"
+# databse pool size
+pool = 4
+
+
+[tls]
+# Certificates can be easily created with certbot (https://certbot.eff.org/) by running
+# certbot certonly --standalone
+# Enable/disable TLS
+enabled = false
+# Path to the certificate file
+certificate_path = "tls/cert.pem"
+# Path to the key file
+key_path  = "tls/key.pem"

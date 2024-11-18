@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Files</title>
+  <script src="/static/JS/main.js"></script>
+  <script src="/static/JS/files.js"></script>
+  <script src="/static/JS/files_ui.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AaronErhardt/Triox-Theme@0.1.0/css/triox-theme.css">
+  <link rel="stylesheet" type="text/css" href="/static/CSS/main.css">
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Triox FILES</h1>
+      <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul id="path-list">
+         <li class="is-active"><a>Home</a></li>
+        </ul>
+      </nav>
+      <div class="block">
+        <form id="theForm" action="/app/files/upload/" method="post" enctype="multipart/form-data" name="theForm">
+          <div class="file">
+            <label class="file-label">
+              <input class="file-input" type="file" name="resume" onchange="upload_files_ev()">
+              <span class="file-cta">
+                <span class="file-label">Upload a file…</span>
+              </span>
+            </label>
+          </div>
+        </form>
+      </div>
+      <div class="block">
+        <input class="button" type="button" value="Update file list" onclick="load_files()">
+        <input class="button" type="button" value="Create folder" onclick="create_folder()">
+      </div>
+    </div>
+    <div class="container">
+      <table class="table is-striped is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th class="checkbox-cell"><label class="checkbox"><input type="checkbox"></label></th>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Modified</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="file-list"></tbody>
+      </table>
+    </div>
+  </section>
+</body>
+
+</html>
